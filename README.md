@@ -83,7 +83,7 @@ This folder contains all qvw files (separated by project). Only one line of scri
 
 ## "bin" Folder
 
-Here will be a small console app that will help with adding/removing project, adding/removing step, build project etc.
+Here will be a small console app that will help with adding/removing project, adding/removing step, build project, publish (copy) apps and data etc.
 
 ## "_config" Folder
 
@@ -104,3 +104,7 @@ All final qvw files. The qvw files here will be produced during the build proces
 This process will combine all steps script files (for a project) into one, will copy the last step qvw (into `build` folder) and will add the full script into it. 
 
 During the build process, using the YAML file (in `_config` folder) all local variables can be replaced to match the production folder structure. For example if we have variable `sDataFolder` which point to the project data folder in the solution during the build process this variable can be replaced with the actual path in the `SourceDocs` folder on the server. Also we can have different paths for the different environments (test and prod). This replacement process can help us to change the paths quickly if the prod folders are changed - no need to hunt where the full paths are used - just change the paths in the config file and build.
+
+## Publish process
+
+When adding new step (with the console app) in the YAML config file will be added section for this step which will help configure the publish paths depending on the environment. The publishing process will simply copy the result qvw and data to the configured location
