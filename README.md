@@ -9,15 +9,6 @@ Recently I was playing with IPython Notebook and got myself thinking if this app
 
 The idea behind the step loads is that the current step is always loading binary from the previous step. This will reduce the reloads waiting time because we are going to wait only for the binary load (fast) + the current step script and not the whole script from the beginning to the end (imagine to wait few minutes instead of 1 hour before realise that there is a missing comma at the last part of the script). Of course if change is made in the first step then all other steps have to be reloaded and this time the overall wait time will be bigger since each step has to be saved to the disk and then loaded from the next step.
 
-
-### Summary
-The whole approach can be separated in 3 parts:
-
-1. Folder structure
-2. Config
-3. Helper
-4. Build
-
 ### Solution Folder Structure
 
 The top level folder structure is:
@@ -33,7 +24,7 @@ root/
 ```
 
 * **_config** - contains solution configuration files, global scripts
-* **bin** - small console application which will be used to maintain the solution
+* **bin** - contains small console application which will be used to maintain the solution
 * **build** - final qvw files
 * **src** - where all the magic is done
 
